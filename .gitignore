@@ -1,4 +1,4 @@
 *.pyc
 api_keys.py
 data/training_data.csv
-data/dev_regions.csv
+data/dev_regions.json
