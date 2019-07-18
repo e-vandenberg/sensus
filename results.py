@@ -61,6 +61,7 @@ def main(keyword):
     threads = []
 
     # change this based on how fast you want tweets to be gathered
+    # works best as multiple of len(regions)
     nthreads = 50
 
     for i in range(nthreads):
