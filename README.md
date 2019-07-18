@@ -1,5 +1,5 @@
 # Sensus
-Twitter Sentiment Analysis with Visualization
+Twitter Sentiment Analysis with Geographic Visualization
 
 **Dependencies**
 * scikit-learn
