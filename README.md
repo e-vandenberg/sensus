@@ -1,6 +1,14 @@
 # Sensus
 Twitter Sentiment Analysis with Geographic Visualization
 
+
+Description
+------------
+Sensus uses Twitter content from geo-coded tweets to map sentiment dataon a friendly UI. 
+Tweets are gathered, analyzed using various natural language processing techniques, and then 
+visualized in the format of a web application.
+
+
 Usage
 ------------
 * Add your Twitter Developper API credentials to api_keys.py
