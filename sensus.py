@@ -17,8 +17,8 @@ def form_post():
     with open("static/us-states.json") as d:
         data = json.load(d)
 
-        results = results.main(keyword.upper())
-        for key, value in results.iteritems():
+        response = results.main(keyword.upper())
+        for key, value in response.iteritems():
             data["features"][value[0]]["properties"]["density"] = value[1]
 
         return render_template('index.html', data=data)
