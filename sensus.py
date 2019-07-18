@@ -1,7 +1,7 @@
 import sys
 from flask import Flask, request, render_template
 import json
-import main
+import results
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def form_post():
     with open("static/us-states.json") as d:
         data = json.load(d)
 
-        results = main.main(keyword.upper())
+        results = results.main(keyword.upper())
         for key, value in results.iteritems():
             data["features"][value[0]]["properties"]["density"] = value[1]
 
