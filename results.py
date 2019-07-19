@@ -64,14 +64,17 @@ def main(keyword):
     # works best as multiple of len(regions)
     nthreads = 50
 
+
     for i in range(nthreads):
         chunk = regions[i::nthreads]
         t = Thread(target=add_to_dict, args=(d, keyword, chunk))
         threads.append(t)
 
     # launch threads and ensure they finish before moving forward
+
     [t.start() for t in threads]
     [t.join() for t in threads]
+
 
     # results is a dict that comes back in the format: {state: [state_index, positive_percentage]}
     # state_index is used for communication with the geoJSON on the frontend

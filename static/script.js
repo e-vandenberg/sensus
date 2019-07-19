@@ -99,9 +99,17 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Twitter Sentiment Data</h4>' +  (props ?
-        '<b>' + props.name + '</b><br />' + props.density + ' % positive'
-        : 'Hover over a state');
+    if (typeof props != "undefined") {
+      if (props.density > 0) {
+        this._div.innerHTML = '<h4>Twitter Sentiment Data</h4>' +  (props ?
+          '<b>' + props.name + '</b><br />' + props.density + ' % positive'
+          : 'Hover over a state');
+      } else {
+        this._div.innerHTML = '<h4>Twitter Sentiment Data</h4>' +  (props ?
+          '<b>' + props.name + '</b><br />' + 'Not Enough Tweets in this Region'
+          : 'Hover over a state');
+      }
+    }
 };
 
 info.addTo(map);
