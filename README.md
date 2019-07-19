@@ -5,8 +5,7 @@ Twitter Sentiment Analysis with Geographic Visualization
 Description
 ------------
 Sensus uses geo-coded tweets to map sentiment data on a friendly UI. 
-Tweets are gathered from multiple regions, analyzed using various natural language processing techniques, and then 
-visualized in the format of a simple web application with the help of [Leaflet](https://leafletjs.com/).
+Tweets are gathered from multiple regions using the [Twitter Developer API](https://developer.twitter.com/en/docs/tweets/search/overview), analyzed using [Scikit Learn](https://scikit-learn.org/stable/) alongside various natural language processing techniques, and then visualized in the format of a simple web application with the help of [Leaflet](https://leafletjs.com/).
 .
 
 
