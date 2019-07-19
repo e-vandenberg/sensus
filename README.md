@@ -20,5 +20,5 @@ Dependencies
 ------------
 * scikit-learn
 * tweepy
-* python Flask
+* Flask
 * pandas
