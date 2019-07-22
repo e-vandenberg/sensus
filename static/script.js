@@ -5,13 +5,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='
 }).addTo(map);
 
 var geoJson;
+
+// convert positivity values to colour
 function hslToHex(h, s, l) {
   h /= 360;
   s /= 100;
   l /= 100;
   let r, g, b;
   if (s === 0) {
-    r = g = b = l; // achromatic
+    r = g = b = l;
   } else {
     const hue2rgb = (p, q, t) => {
       if (t < 0) t += 1;
@@ -38,6 +40,7 @@ function hslToHex(h, s, l) {
 }
 
 
+// Fill the state tiles with colour
 function style(feature) {
     return {
         fillColor: hslToHex(feature.properties.density,90, 50),
@@ -49,9 +52,11 @@ function style(feature) {
     };
 }
 
-
+// add tiles to screen
 L.geoJson(statesData, {style: style}).addTo(map);
 
+
+// Highlight tile on hover
 function highlightFeature(e) {
     var layer = e.target;
 
@@ -73,6 +78,7 @@ function resetHighlight(e) {
     info.update();
 }
 
+// zoom to a tile on click
 function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
 }
@@ -85,6 +91,7 @@ function onEachFeature(feature, layer) {
     });
 }
 
+// update map
 geojson = L.geoJson(statesData, {
     style: style,
     onEachFeature: onEachFeature
@@ -98,6 +105,7 @@ info.onAdd = function (map) {
     return this._div;
 };
 
+// Add info to the banner
 info.update = function (props) {
     if (typeof props != "undefined") {
       if (props.density > 0) {
