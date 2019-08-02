@@ -12,11 +12,17 @@ class Analyzer:
 
         # load in the cached classifier
         with open('cached_models/my_dumped_classifier.pkl', 'rb') as fid:
-            self.gnb_loaded = cPickle.load(fid)
+            try:
+                self.gnb_loaded = cPickle.load(fid)
+            except EOFError:
+                pass
 
         # load in the cached vectorizer
         with open('cached_models/dumped_vectorizer', 'rb') as dv:
-            self.vectorizer = cPickle.load(dv)
+            try:
+                self.vectorizer = cPickle.load(dv)
+            except EOFError:
+                pass
 
     def clean_tweet(self, tweet):
         # clean the tweet of special characters and such
